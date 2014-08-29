@@ -7,7 +7,8 @@ Guiding Principals
 
 1. Have Fun!
 2. Focus On Learning
-3. Big Goals
+3. Forward Progress
+4. Big Goals
 
 GIT BASICS
 ==========
@@ -15,7 +16,8 @@ GIT BASICS
 pw: dc1
 git remote -v (Show Remote Settings)
 git status
-git diff
+git diff  (Unstaged changes which could be added)
+git diff --cached (Staged changes that could be pushed)
 git clone git@github.com:username/reponame.git (Clone from github)
 
 Config:
