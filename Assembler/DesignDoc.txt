@@ -44,3 +44,9 @@ By default Stages are C++ code, however I would like the chance to also host Pyt
 	Name - A friendly name for the Stage
 	Description - A bit of information about what the stage does may be user visible
 	Version - Stages will be upgraded and changed over time, we need to track this
+	Attribute Property Bag - Attributes are 0.0 - 1.0 float values that scale between two different extremes. 
+		For example Angular, Blue, Busy, Minimal. For each stage for any attributes that
+		it does not define anything for they are "undefined or non applicable." Stages can also have a fixed value for these.
+		For example an object provider that only provides triangles would have the Angular / Smooth value coded to 1.0. If the 
+		stage can provide from various ranges, then the attribute is variable and the user can put in a value to get more or less of
+		that particular attribute.
