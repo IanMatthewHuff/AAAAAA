@@ -47,6 +47,19 @@ By default Stages are C++ code, however I would like the chance to also host Pyt
 	Attribute Property Bag - Attributes are 0.0 - 1.0 float values that scale between two different extremes. 
 		For example Angular, Blue, Busy, Minimal. For each stage for any attributes that
 		it does not define anything for they are "undefined or non applicable." Stages can also have a fixed value for these.
-		For example an object provider that only provides triangles would have the Angular / Smooth value coded to 1.0. If the 
+		For example an object provider that only provides triangles would have the Angular value coded to 1.0. If the 
 		stage can provide from various ranges, then the attribute is variable and the user can put in a value to get more or less of
 		that particular attribute.
+
+The stages should implement a set of input and output interfaces that define what needs to be fed into each stage
+and what the output of each stage is. The stages can work backwards to specify the specifics of the previous stage that 
+need to be fed into the next input. 
+
+Example:
+On of the first stages that we need is a random generator. This stage can generate a few different types of random sequences.
+that stage could implement outputs like IIntegerSequenceOutput, IFloatSequenceOutput. These sequences could take parameters
+via ISequenceInput which specifies stuff like if sequences should be unique and the bounds of the sequences. Next we could 
+have a constructed color stage. This stage has IRGBAColorOutput and input of IIntegerSequenceInput. The tail of the 
+IIntegerSequenceOutput from the random genearator stage feeds into the IIntegerSequenceInput from the constructed color
+stage. In this case the constructed color stage can request four integers from the IIntegerSequenceOutput in the the range
+that is desired for the RGBA values. Then use those to construct a color and pass it to IRGBAColorOutput. 
