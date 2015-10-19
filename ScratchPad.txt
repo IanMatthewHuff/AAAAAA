@@ -1,3 +1,5 @@
 ScratchPad - A place for loose ideas / quick jots that should later be categorized to one place or another.
 
 Tree Over Time - Procedurally generate a 2D visual of a large tree over time. Can use scientific data about tree branching and structure to grow it up in different ways. From the simulation we can then grab pics of the tree at various ages to provide a set of shots of that unique tree over time. Going for a stylized look here, like modern kids bedroom, not a natural style. Perhaps wind / seasons?
+
+Flow Video - Trace basic outlines of dancers. Use generated graphics to fill in dots, lines and geometric shapes branching off of dancers moves and shapes. Requires beat syncronization and 2D generation.
