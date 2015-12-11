@@ -7,7 +7,7 @@
 int main(int argc, char **argv)
 {
 	// Check that we are building right
-	std::cout << "App Runs" << std::endl;
+	std::cout << "App Runs Now" << std::endl;
 
 	// Check that we can load our Assembler
 	Assembler myAssembler;
