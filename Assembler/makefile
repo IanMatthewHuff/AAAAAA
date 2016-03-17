@@ -10,10 +10,10 @@ $(EXE): main.o assembler.o assemblerStage.o
 main.o: main.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-assembler.o: assembler.cpp
+assembler.o: assembler.cpp assembler.h stdafx.h.gch
 	$(CXX) $(CXXFLAGS) $< -o $@	
 
-assemblerStage.o: assemblerStage.cpp
+assemblerStage.o: assemblerStage.cpp assemblerStage.h stdafx.h.gch
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 # Build our precompiled header first
