@@ -21,7 +21,7 @@ namespace AAAAAA
                 AssemblerStage();
 
                 // This string will be used as the ID of each stage in the pipeline process
-
+                virtual std::wstring StageName() = 0;
         };        
     }
 }
