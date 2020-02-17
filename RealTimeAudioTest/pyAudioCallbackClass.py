@@ -22,6 +22,8 @@ p = pyaudio.PyAudio()
 
 class audio_class:
     def __init__(self):
+        self.started = False
+        self.start_frame = -1
         self.wf = wave.open("Media/WindowsRingin.wav")
         self.stream = p.open(
             format=p.get_format_from_width(self.wf.getsampwidth()),
@@ -34,8 +36,23 @@ class audio_class:
         self.stream.start_stream()
 
     def callback(self, in_data, frame_count, time_info, status):
+        print(str(frame_count))
         data = self.wf.readframes(frame_count)
-        return (data, pyaudio.paContinue)
+        # return (data, pyaudio.paContinue)
+
+        # Note: returning None is killing the stream, need a different way to do this
+        return (None, pyaudio.paContinue)
+
+    # def callback(self, in_data, frame_count, time_info, status):
+    # print(str(frame_count))
+    # if self.started:
+    # data = self.wf.readframes(frame_count)
+    # return (data, pyaudio.paContinue)
+
+    # return (None, pyaudio.paContinue)
+
+    def start(self):
+        self.started = True
 
     def close(self):
         self.wf.close()
@@ -52,7 +69,7 @@ while loop:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_a:
                 # Press the a key to play a pyaudio sound
-                print("a")
+                audio.start()
         elif event.type == pygame.QUIT:
             loop = False
 
@@ -60,8 +77,7 @@ while loop:
     screen.blit(titleScreen, titleScreenRect)
     pygame.display.flip()
 
-
-# wf.close()
+audio.close()
 
 p.terminate()
 
